@@ -1,0 +1,27 @@
+{
+  "name": "bongo-cart",
+  "version": "1.0.0",
+  "description": "Backend project for my Bongo-cart app",
+  "license": "ISC",
+  "author": "rakib",
+  "type": "commonjs",
+  "main": "index.js",
+  "scripts": {
+    "dev": "cross-env NODE_ENV=dev nodemon src/server.js",
+    "build": "node src/server.js",
+    "start": "cross-env NODE_ENV=production node src/server.js"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.14"
+  },
+  "dependencies": {
+    "bcrypt": "^6.0.0",
+    "cors": "^2.8.6",
+    "cross-env": "^7.0.3",
+    "dotenv": "^18.0.9",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.3",
+    "jwt-decode": "^4.0.0",
+    "mongoose": "^9.11.4"
+  }
+}
