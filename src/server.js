@@ -1,29 +1,23 @@
-const dotenv = require("dotenv");
-const express = require("express");
+const config = require("./config/config");
 const mongoose = require("mongoose");
+const app = require("./app");
 
-const routes = require("./app/routes");
-
-const globalErrorHandler = require("./app/middlewares/globalErrorHandler");
-const app = express();
-
-dotenv.config();
-const port = process.env.PORT || 5000;
-
-app.use(express.json());
-app.use("/api/v1", routes);
 // app.use("/api/v1/", userRoutes);
 // app.use("/api/v1/", productRoutes);
 
-app.use(globalErrorHandler);
+async function bootstrap() {
+  try {
+    mongoose.connect(config.database_url);
+    console.log(`DB connected`);
+    app.listen(config.port, () => {
+      console.log(`BongoCart is listening to port: ${config.port}`);
+    });
+  } catch (err) {
+    console.log(`Error occurred`, err);
+  }
+}
 
+bootstrap().catch(console.dir);
 app.get("/", (req, res) => {
-  res.status(400).json({ message: "Hello" });
+  res.send("Hello from BongoCart Server");
 });
-mongoose
-  .connect(process.env.DATABASE_URL)
-  .then(() => {
-    console.log("DB connected!");
-  })
-  .catch((err) => console.log(err));
-app.listen(port, () => console.log(`App is listening to port: ${port}`));

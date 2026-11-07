@@ -5,7 +5,11 @@ const orderController = require("./orderController");
 const router = express.Router();
 
 router.post("/add-order", auth("User"), orderController.addOrder);
-router.get("/get-order-list", auth("User"), orderController.getOrderList);
+router.get(
+  "/get-order-list/:email",
+  auth("User"),
+  orderController.getOrderList,
+);
 router.get("/get-order-details", auth("User"), orderController.getOrderDetails);
 router.patch(
   "/get-order-list",
@@ -23,10 +27,6 @@ router.get(
   auth("Admin"),
   orderController.adminGetOrders,
 );
-router.post(
-  "/payment-success/:tranId",
-  auth("User"),
-  orderController.successPayment,
-);
+router.post("/payment-success/:tranId", orderController.successPayment);
 
 exports.module = router;
