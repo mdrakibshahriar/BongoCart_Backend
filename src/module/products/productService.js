@@ -131,6 +131,19 @@ const deleteProductById = async (id) => {
   if (!deleteRes) throw new ApiError(400, "Product not found");
   return deleteRes;
 };
+const updateSales = async (product) => {
+  const updateProduct = await Products.findById(product._id);
+  if (!updateProduct) throw new ApiError(404, "product not found");
+  updateProduct.sales += product.quantity;
+  await updateProduct.save();
+  return updateProduct;
+};
+const updateAvailableQuantity = async (product) => {
+  const updateProduct = await Products.findById(product._id);
+  if (!updateProduct) throw new ApiError(404, "product not found");
+  updateProduct.availableQuantity -= product.quantity;
+  return await updateProduct.save();
+};
 module.exports = {
   addProduct,
   addAllProduct,
@@ -141,4 +154,6 @@ module.exports = {
   relatedProducts,
   getProductById,
   deleteProductById,
+  updateSales,
+  updateAvailableQuantity,
 };
