@@ -29,50 +29,52 @@ Main features:
 
 ## Project Structure
 
+```text
 src/
-|-- app.js
-|-- server.js
-|-- app/
-| |-- middlewares/
-| | |-- auth.js
-| | -- globalErrorHandler.js
-| |-- routes.js
-| -- shared/
-| -- helper.js
-|-- config/
-| -- config.js
-|-- error/
-| |-- handleApiError.js
-| |-- handleCastError.js
-| -- handleValidationError.js
-|-- module/
-| |-- brand/
-| | |-- brandController.js
-| | |-- brandModel.js
-| | -- brandRoute.js
-| |-- category/
-| | |-- categoryController.js
-| | |-- categoryModel.js
-| | -- categoryRoute.js
-| |-- order/
-| | |-- orderController.js
-| | |-- orderModel.js
-| | -- orderRoute.js
-| |-- products/
-| | |-- productController.js
-| | |-- productModel.js
-| | |-- productRoute.js
-| | -- productService.js
-| |-- reviews/
-| | |-- reviewController.js
-| | |-- reviewModel.js
-| | |-- reviewRoute.js
-| | -- reviewService.js
-| -- user/
-| |-- userController.js
-| |-- userModel.js
-| |-- userRoute.js
-| -- userService.js
+├── app.js
+├── server.js
+├── app/
+│   ├── middlewares/
+│   │   ├── auth.js
+│   │   └── globalErrorHandler.js
+│   ├── routes.js
+│   └── shared/
+│       └── helper.js
+├── config/
+│   └── config.js
+├── error/
+│   ├── handleApiError.js
+│   ├── handleCastError.js
+│   └── handleValidationError.js
+└── module/
+    ├── brand/
+    │   ├── brandController.js
+    │   ├── brandModel.js
+    │   └── brandRoute.js
+    ├── category/
+    │   ├── categoryController.js
+    │   ├── categoryModel.js
+    │   └── categoryRoute.js
+    ├── order/
+    │   ├── orderController.js
+    │   ├── orderModel.js
+    │   └── orderRoute.js
+    ├── products/
+    │   ├── productController.js
+    │   ├── productModel.js
+    │   ├── productRoute.js
+    │   └── productService.js
+    ├── reviews/
+    │   ├── reviewController.js
+    │   ├── reviewModel.js
+    │   ├── reviewRoute.js
+    │   └── reviewService.js
+    └── user/
+        ├── userController.js
+        ├── userModel.js
+        ├── userRoute.js
+        └── userService.js
+```
 
 ## Application Flow
 
